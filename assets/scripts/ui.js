@@ -1,6 +1,8 @@
 'use strict'
 const store = require('./store')
 const showLocationsTemplate = require('./templates/helpers/location-listing.handlebars')
+const showReviewsTemplate = require('./templates/helpers/review-listing.handlebars')
+const createReviewTemplate = require('./templates/helpers/review-listing.handlebars')
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
@@ -56,6 +58,24 @@ const getLocationsSuccess = function (data) {
 const getLocationsFailure = function () {
   $('#message').text('Get What Happening  Failed')
 }
+
+const getReviewsSuccess = function (data) {
+  $('#message').text('Here is what happning and the stuff you need!!')
+  const showReviewsHTML = showReviewsTemplate({ reviews: data.reviews })
+  $('.location').html(showReviewsHTML)
+}
+const getReviewsFailure = function () {
+  $('#message').text('Get What Happening  Failed')
+}
+
+const createReviewsSuccess = function (data) {
+  $('#message').text('Here is what happning and the stuff you need!!')
+  const createReviewsHTML = createReviewTemplate({ reviews: data.reviews })
+  $('.createreviews').html(createReviewsHTML)
+}
+const createReviewsFailure = function () {
+  $('#message').text('Get What Happening  Failed')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -66,5 +86,9 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   getLocationsSuccess,
-  getLocationsFailure
+  getLocationsFailure,
+  getReviewsSuccess,
+  getReviewsFailure,
+  createReviewsSuccess,
+  createReviewsFailure
 }

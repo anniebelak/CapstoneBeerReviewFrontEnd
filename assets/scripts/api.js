@@ -1,5 +1,4 @@
 'use strict'
-const getFormFields = require(`../../lib/get-form-fields`)
 const config = require('./config')
 const store = require('./store')
 
@@ -49,12 +48,35 @@ const index = function () {
     method: 'GET'
   })
 }
+const ReviewIndex = function (data) {
+  console.log('data is', data)
+  return $.ajax({
+    url: config.apiOrigin + '/reviews',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+const createReview = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/reviews',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
-  index
+  index,
+  ReviewIndex,
+  createReview
 
 }

@@ -58,8 +58,31 @@ const getLocations = function (event) {
   console.log('getting here?')
   event.preventDefault()
   api.index()
+    .then((locations) => {
+      $(document).on('click', '.select-beer', showCreateReview)
+      return locations
+    })
     .then(ui.getLocationsSuccess)
     .catch(ui.getLocationssFailure)
+}
+
+const getReviews = function (event) {
+  console.log('getting here?')
+  event.preventDefault()
+  api.ReviewIndex()
+    .then(ui.getReviewsSuccess)
+    .catch(ui.getReviewsFailure)
+}
+
+const onCreateReview = function (event) {
+  console.log('create?')
+  event.preventDefault()
+  api.createReview()
+    .then(ui.createReviewSuccess)
+    .catch(ui.createReviewFailure)
+}
+const showCreateReview = function (event) {
+  $('.createreviews').show()
 }
 
 const addHandlers = () => {
@@ -69,6 +92,8 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#passwordShow').on('click', updatePassword)
   $('#showLocation').on('click', getLocations)
+  $('#viewReviews').on('click', getReviews)
+  $('.select-beer').on('click', showCreateReview)
 }
 module.exports = {
   addHandlers
