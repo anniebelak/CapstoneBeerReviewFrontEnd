@@ -1,2 +1,9 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.container-fluid {
+  background: url('https://i.imgur.com/tiRVCet.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}

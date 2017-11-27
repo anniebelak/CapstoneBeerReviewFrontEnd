@@ -1,25 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>Beer-Review-App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
-    </body>
-</html>
+
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+    <!-- <div class="image"> -->
+      <fieldset>
+        <br>
+        <br>
+    <br>
+    <br>
+  </fieldset>
+  <!-- </div> -->
+
+<body class="container-fluid">
+    <div id='message'></div>
+    <br>
+    <br>
+      <!-- <h2 id= "title">WHaTs HOPs ining</h2>
+      <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="#sign-up">Sign-Up</a>
+      <a href="#sign-in">Sign-In</a>
+      <a href="#sign-out">Sign-Out</a>
+    </div> -->
+    <form id="sign-up">
+      <fieldset>
+        <input id="email" type="text" name="credentials[email]" placeholder="Enter Email">
+        <input id="password1"type="text" name="credentials[password]"placeholder="Enter Password">
+        <input id="password2"type="text" name="credentials[password_confirmation]"placeholder="Enter Password Confirmatiom">
+        <input type="submit" name="submit" value="Sign up!">
+        </fieldset>
+    </form>
+    <div>
+    <form id="sign-in">
+      <fieldset>
+        <input id="sign-in-val" type="text" name="credentials[email]" placeholder="Enter Email">
+        <input id="sign-password"type="text" name="credentials[password]"placeholder="Enter Password">
+        <input type="submit" name="submit" value="Sign In!">
+        </fieldset>
+    </form>
+  <form id="sign-out">
+      <fieldset>
+      <input type="submit" name="submit" value="Sign out!">
+      </fieldset>
+  </form>
+  <div>
+    <form id="change-password">
+      <fieldset>
+        <input id="password3" type="text" name="passwords[old]" placeholder="Old Password">
+        <input id="password4" type="text" name="passwords[new]" placeholder="New Password">
+        <input type="submit" name="submit" value="Change PASSWORD!">
+        </fieldset>
+    </form>
+    <br>
+
+
+</body>
+<html>
