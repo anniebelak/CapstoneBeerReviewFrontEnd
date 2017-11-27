@@ -1,5 +1,6 @@
 'use strict'
 const getFormFields = require(`../../lib/get-form-fields`)
+
 // const store = require('./store')
 
 const api = require('./api')
@@ -53,12 +54,21 @@ const updatePassword = function (event) {
   $('#change-password').show()
 }
 
+const getLocations = function (event) {
+  console.log('getting here?')
+  event.preventDefault()
+  api.index()
+    .then(ui.getLocationsSuccess)
+    .catch(ui.getLocationssFailure)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#passwordShow').on('click', updatePassword)
+  $('#showLocation').on('click', getLocations)
 }
 module.exports = {
   addHandlers

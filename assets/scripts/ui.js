@@ -1,6 +1,6 @@
 'use strict'
 const store = require('./store')
-// const showEventsTemplate = require('./templates/events-listing.handlebars')
+const showLocationsTemplate = require('./templates/helpers/location-listing.handlebars')
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
@@ -47,6 +47,15 @@ const changePasswordSuccess = function (data) {
 const changePasswordFailure = function (error) {
   $('#message').text('Error on change password', error)
 }
+
+const getLocationsSuccess = function (data) {
+  $('#message').text('Here is what happning and the stuff you need!!')
+  const showLocationsHTML = showLocationsTemplate({ locations: data.locations })
+  $('.location').html(showLocationsHTML)
+}
+const getLocationsFailure = function () {
+  $('#message').text('Get What Happening  Failed')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -55,5 +64,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  getLocationsSuccess,
+  getLocationsFailure
 }

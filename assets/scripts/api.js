@@ -1,5 +1,5 @@
 'use strict'
-
+const getFormFields = require(`../../lib/get-form-fields`)
 const config = require('./config')
 const store = require('./store')
 
@@ -42,11 +42,19 @@ const changePassword = function (data) {
     data
   })
 }
+const index = function () {
+  // console.log('data is ', data.event)
+  return $.ajax({
+    url: config.apiOrigin + '/locations',
+    method: 'GET'
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  index
 
 }
