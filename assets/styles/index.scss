@@ -86,7 +86,8 @@ h2{
         border-bottom:1px solid #7b8b2f;
 
   }
-  #createReviews{
+
+  .sucessCreate {
     display:block; /* change this from inline-block */
         width:20%; /* setting the width */
         // position:relative;
@@ -106,3 +107,6 @@ h2{
         background-color:#96aa39;
         border-bottom:1px solid #7b8b2f;
   }
+#creatingReview {
+    margin: auto;
+}

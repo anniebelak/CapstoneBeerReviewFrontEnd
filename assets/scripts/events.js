@@ -75,13 +75,14 @@ const getReviews = function (event) {
     .catch(ui.getReviewsFailure)
 }
 
-// const onCreateReview = function (event) {
-//   console.log('create?')
-//   event.preventDefault()
-//   api.createReview()
-//     .then(ui.createReviewSuccess)
-//     .catch(ui.createReviewFailure)
-// }
+const onCreateReview = function (event) {
+  console.log('create?')
+  event.preventDefault()
+  api.createReview()
+    .then(ui.createReviewSuccess)
+    .catch(ui.createReviewFailure)
+}
+
 const onSelectBeer = function (event) {
   event.preventDefault()
   const selectedBeerId = $(this).parent().attr('data-id')
@@ -100,6 +101,7 @@ const addHandlers = () => {
   $('#showLocation').on('click', getLocations)
   $('#viewReviews').on('click', getReviews)
   $('.select-beer').on('click', onSelectBeer)
+  $('.selectbeer').on('submit', '.successCreate', onCreateReview)
 }
 module.exports = {
   addHandlers
