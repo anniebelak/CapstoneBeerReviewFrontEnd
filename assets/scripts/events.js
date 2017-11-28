@@ -102,7 +102,7 @@ const onDeleteReview = function (event) {
   event.preventDefault()
   console.log('button is working')
   console.log('what is event?', event.target)
-  const deleteID = $(event.target).attr('data-id')
+  const deleteID = $('.delete-reviews').attr('data-id')
   console.log(deleteID)
   api.deleteReview(deleteID)
     .then(ui.deleteReviewSuccess)
@@ -133,7 +133,7 @@ const addHandlers = () => {
   $(document).on('submit', '#creatingReview', function (e) {
     onCreateReview(e)
   })
-  $(document).on('click', '.delete-edit', function (e) {
+  $(document).on('submit', '.delete-edit', function (e) {
     onDeleteReview(e)
   })
 
