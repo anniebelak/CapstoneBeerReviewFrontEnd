@@ -12,10 +12,8 @@
     <input class="edit-reviews" type="submit" value="EDIT">
   </form>
 </div>
-{{#each review.beer as |beer|}}
 <div class="beer" data-id="{{review.beer.id}}">
 <h4>Beer:{{review.beer.name}}</h4>
 <h4>Type:{{review.beer.beer_type}}</h4>
 <h4>Description:{{review.beer.description}}</h4>
-{{/each}}
 {{/each}}

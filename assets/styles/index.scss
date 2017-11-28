@@ -107,6 +107,37 @@ h2{
         background-color:#96aa39;
         border-bottom:1px solid #7b8b2f;
   }
-input {
-    margin: auto;
+
+.delete-reviews {
+  display:block; /* change this from inline-block */
+      width:20%; /* setting the width */
+      // position:relative;
+      font-style:normal;
+      font-weight:normal;
+      font-family:"Open Sans";
+      font-size:14px;
+      outline:none;
+      color:#fff;
+      border:none;
+      text-decoration:none;
+      text-align:center;
+      // cursor:pointer;
+      -webkit-border-radius:2px;
+      -moz-border-radius:2px;
+      border-radius:2px;
+      background-color:#96aa39;
+      border-bottom:1px solid #7b8b2f;
+}
+#createReview {
+  margin:auto;
+}
+
+#center-form {
+  margin: auto;
+  width: 30%;
+  text-align: center;
+}
+
+#auth-form {
+  margin:auto;
 }

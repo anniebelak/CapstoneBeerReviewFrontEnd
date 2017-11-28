@@ -22,6 +22,7 @@ const signInSuccess = function (response) {
   $('#sign-out').show()
   $('#sign-up').hide()
   $('#viewReviews').show()
+  $('#showLocation').show()
 }
 
 const signInFailure = function (error) {
@@ -37,6 +38,9 @@ const signOutSuccess = function (data) {
   $('#change-password').hide()
   $('#viewReviews').hide()
   $('.reviews').html('')
+  $('#showLocation').hide()
+  $('.location').html('')
+  $('.selectbeer').html('')
 }
 
 const signOutFailure = function (error) {
@@ -54,45 +58,43 @@ const changePasswordFailure = function (error) {
 }
 
 const getLocationsSuccess = function (data) {
-  $('#message').text('Here is what happning and the stuff you need!!')
+  $('#message').text('You are now able to start reviewing beers!')
   const showLocationsHTML = showLocationsTemplate({ locations: data.locations })
   $('.location').html(showLocationsHTML)
+  $('.selectbeer').html('')
 }
 const getLocationsFailure = function () {
-  $('#message').text('Get What Happening  Failed')
+  $('#message').text('Get Local Breweries Failed')
 }
 
 const getReviewsSuccess = function (data) {
-  $('#message').text('Here is what happning and the stuff you need!!')
+  $('#message').text('Here are your reviews, if none appear go to local breweries to create reviews!')
   const showReviewsHTML = showReviewsTemplate({ reviews: data.reviews })
   $('.location').html(showReviewsHTML)
-  console.log(data.reviews)
 }
 const getReviewsFailure = function () {
-  $('#message').text('Get What Happening  Failed')
+  $('#message').text('Get Reviews Failed')
 }
 
 const createReviewSuccess = function (data) {
-  $('#message').text('Here is what happning and the stuff you need SUCCESS!!')
-  // const createReviewsHTML = createReviewTemplate({ reviews: data.reviews })
-  // $('.createreviews').html(createReviewsHTML)
+  $('#message').text('You have successfully created a new review!')
   $('.selectbeer').html('')
 }
 const createReviewFailure = function () {
-  $('#message').text('Get What Happening  Failed')
+  $('#message').text('Review failed to create!')
 }
 const getBeerSuccess = function (data) {
-  $('#message').text('Here is what happning and the stuff you need jhgjgjjgjg!!')
+  $('#message').text('You have successfully selected a yummy beverage!')
   $('.location').html('')
-
   const selectBeerHTML = selectBeerTemplate({ beer: data.beer })
   $('.createreviews').html(selectBeerHTML)
 }
 const getBeerFailure = function () {
-  $('#message').text('Get What Happening  Failed')
+  $('#message').text('Unable to select beer!')
 }
 const deleteReviewSuccess = function () {
-  $('#message').text('Happening successfully deleted, select GET EVENTS to see updated list!!')
+  $('#message').text('You have successfully deleted your review!')
+  $('.reviews').html('')
 }
 const deleteReviewFailure = function () {
   $('#message').text('Delete Failed')

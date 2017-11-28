@@ -55,7 +55,6 @@ const updatePassword = function (event) {
 }
 
 const getLocations = function (event) {
-  console.log('getting here?')
   event.preventDefault()
   api.index()
     .then((locations) => {
@@ -70,6 +69,10 @@ const getReviews = function (event) {
   console.log('getting here?')
   event.preventDefault()
   api.ReviewIndex()
+    .then((reviews) => {
+      $(document).on('click', '#updateReview', onUpdateReview)
+      return reviews
+    })
     .then(ui.getReviewsSuccess)
     .catch(ui.getReviewsFailure)
 }
@@ -83,8 +86,6 @@ const onCreateReview = function (event) {
   reviewData.review.rating = data.review.rating
   reviewData.review.beer_id = data.review.beer_id
 
-  console.log('do i have data...', reviewData)
-
   api.createReview(reviewData)
     .then(ui.createReviewSuccess)
     .catch(ui.createReviewFailure)
@@ -93,7 +94,6 @@ const onCreateReview = function (event) {
 const onSelectBeer = function (event) {
   event.preventDefault()
   const selectedBeerId = $(this).parent().attr('data-id')
-  console.log('what is this selectedBeerId', selectedBeerId)
   api.show(selectedBeerId)
     .then(ui.getBeerSuccess)
     .catch(ui.getBeerFailure)
@@ -108,6 +108,18 @@ const onDeleteReview = function (event) {
     .then(ui.deleteReviewSuccess)
     .catch(ui.deleteReviewFailure)
 }
+
+const onUpdateReview = function (event) {
+  const data = getFormFields(this)
+  console.log(event)
+  console.log('on update event data is', data.event)
+  // const updateID = $(this).parent().attr('data-id')
+  event.preventDefault()
+  api.updateEvent(data)
+    .then(ui.updateEventSuccess)
+    .catch(ui.updateEventFailure)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -127,6 +139,7 @@ const addHandlers = () => {
 
   // $('#getReviews').on('click', '.delete-reviews', onDeleteReview)
   $('#viewReviews').hide()
+  $('#showLocation').hide()
 }
 
 module.exports = {
