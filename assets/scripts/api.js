@@ -70,6 +70,14 @@ const createReview = function (data) {
   })
 }
 
+const show = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/beers/' + data,
+    method: 'GET'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -77,6 +85,7 @@ module.exports = {
   changePassword,
   index,
   ReviewIndex,
-  createReview
+  createReview,
+  show
 
 }

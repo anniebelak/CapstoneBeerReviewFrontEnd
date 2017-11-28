@@ -2,7 +2,8 @@
 const store = require('./store')
 const showLocationsTemplate = require('./templates/helpers/location-listing.handlebars')
 const showReviewsTemplate = require('./templates/helpers/review-listing.handlebars')
-const createReviewTemplate = require('./templates/helpers/review-listing.handlebars')
+const createReviewTemplate = require('./templates/helpers/create-review.handlebars')
+const selectBeerTemplate = require('./templates/helpers/select-beer.handlebars')
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
@@ -76,6 +77,16 @@ const createReviewsSuccess = function (data) {
 const createReviewsFailure = function () {
   $('#message').text('Get What Happening  Failed')
 }
+const getBeerSuccess = function (data) {
+  $('#message').text('Here is what happning and the stuff you need jhgjgjjgjg!!')
+  $('.location').html('')
+
+  const selectBeerHTML = selectBeerTemplate({ beer: data.beer })
+  $('.createreviews').html(selectBeerHTML)
+}
+const getBeerFailure = function () {
+  $('#message').text('Get What Happening  Failed')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -90,5 +101,7 @@ module.exports = {
   getReviewsSuccess,
   getReviewsFailure,
   createReviewsSuccess,
-  createReviewsFailure
+  createReviewsFailure,
+  getBeerSuccess,
+  getBeerFailure
 }

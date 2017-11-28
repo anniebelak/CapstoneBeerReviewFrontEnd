@@ -59,7 +59,8 @@ const getLocations = function (event) {
   event.preventDefault()
   api.index()
     .then((locations) => {
-      $(document).on('click', '.select-beer', showCreateReview)
+      $(document).on('click', '.select-beer', onSelectBeer)
+      console.log('getting to button')
       return locations
     })
     .then(ui.getLocationsSuccess)
@@ -74,15 +75,20 @@ const getReviews = function (event) {
     .catch(ui.getReviewsFailure)
 }
 
-const onCreateReview = function (event) {
-  console.log('create?')
+// const onCreateReview = function (event) {
+//   console.log('create?')
+//   event.preventDefault()
+//   api.createReview()
+//     .then(ui.createReviewSuccess)
+//     .catch(ui.createReviewFailure)
+// }
+const onSelectBeer = function (event) {
   event.preventDefault()
-  api.createReview()
-    .then(ui.createReviewSuccess)
-    .catch(ui.createReviewFailure)
-}
-const showCreateReview = function (event) {
-  $('.createreviews').show()
+  const selectedBeerId = $(this).parent().attr('data-id')
+  console.log('what is this selectedBeerId', selectedBeerId)
+  api.show(selectedBeerId)
+    .then(ui.getBeerSuccess)
+    .catch(ui.getBeerFailure)
 }
 
 const addHandlers = () => {
@@ -93,7 +99,7 @@ const addHandlers = () => {
   $('#passwordShow').on('click', updatePassword)
   $('#showLocation').on('click', getLocations)
   $('#viewReviews').on('click', getReviews)
-  $('.select-beer').on('click', showCreateReview)
+  $('.select-beer').on('click', onSelectBeer)
 }
 module.exports = {
   addHandlers
