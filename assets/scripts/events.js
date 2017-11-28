@@ -60,7 +60,6 @@ const getLocations = function (event) {
   api.index()
     .then((locations) => {
       $(document).on('click', '.select-beer', onSelectBeer)
-      console.log('getting to button')
       return locations
     })
     .then(ui.getLocationsSuccess)
@@ -76,9 +75,17 @@ const getReviews = function (event) {
 }
 
 const onCreateReview = function (event) {
-  console.log('create?')
   event.preventDefault()
-  api.createReview()
+  const reviewData = {}
+  reviewData.review = {}
+  const data = getFormFields(event.target)
+  reviewData.review.comment = data.review.comment
+  reviewData.review.rating = data.review.rating
+  reviewData.review.beer_id = data.review.beer_id
+
+  console.log('do i have data...', reviewData)
+
+  api.createReview(reviewData)
     .then(ui.createReviewSuccess)
     .catch(ui.createReviewFailure)
 }
@@ -91,7 +98,16 @@ const onSelectBeer = function (event) {
     .then(ui.getBeerSuccess)
     .catch(ui.getBeerFailure)
 }
-
+const onDeleteReview = function (event) {
+  event.preventDefault()
+  console.log('button is working')
+  console.log('what is event?', event.target)
+  const deleteID = $(event.target).attr('data-id')
+  console.log(deleteID)
+  api.deleteReview(deleteID)
+    .then(ui.deleteReviewSuccess)
+    .catch(ui.deleteReviewFailure)
+}
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -101,8 +117,18 @@ const addHandlers = () => {
   $('#showLocation').on('click', getLocations)
   $('#viewReviews').on('click', getReviews)
   $('.select-beer').on('click', onSelectBeer)
-  $('.selectbeer').on('submit', '.successCreate', onCreateReview)
+  // $('.selectbeer').on('submit', '#createReview', onCreateReview)
+  $(document).on('submit', '#creatingReview', function (e) {
+    onCreateReview(e)
+  })
+  $(document).on('click', '.delete-edit', function (e) {
+    onDeleteReview(e)
+  })
+
+  // $('#getReviews').on('click', '.delete-reviews', onDeleteReview)
+  $('#viewReviews').hide()
 }
+
 module.exports = {
   addHandlers
 }

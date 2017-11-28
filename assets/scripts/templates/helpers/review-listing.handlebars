@@ -1,13 +1,29 @@
+<div class="beer" data-id="{{review.beer.id}}">
+<h4>Beer:{{review.beer.name}}</h4>
+<h4>Type:{{review.beer.beer_type}}</h4>
+ <h4>Description:{{review.beer.description}}</h4>
+
 
 
 {{#each reviews as |review|}}
 <div class="reviews" data-id="{{review.id}}">
-  <h4>Comment</h4>
-     <input type='text' class='reviewcomment' name='review[comment]' value="{{comment}}">
-     <h4>Rating</h4>
-      <input type='text' class='reviewrating' name='review[rating]' value="{{rating}}">
-    <div>
-     <button class="delete-reviews" type="click">DELETE</button>
+  <form class = "delete-edit">
+    <div class="reviews" data-id="{{review.id}}">
+  <h2>Review</h2>
+  <h2>Comments</h2>
+  <h4>{{comment}}</h4>
+  <h2>How hoppy was it?</h2>
+  <h4>{{rating}}</h4>
+  <div>
+     <button class="delete-reviews" type=button data-id="{{review.id}}">DELETE</button>
+   </div>
+   <div>
      <input class="edit-reviews" type="submit" value="EDIT">
+   </div>
+   </form>
 </div>
+<div class="beer" data-id="{{review.beer.id}}">
+<h4>Beer:{{review.beer.name}}</h4>
+<h4>Type:{{review.beer.beer_type}}</h4>
+ <h4>Description:{{review.beer.description}}</h4>
 {{/each}}

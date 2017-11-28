@@ -2,7 +2,6 @@
 const store = require('./store')
 const showLocationsTemplate = require('./templates/helpers/location-listing.handlebars')
 const showReviewsTemplate = require('./templates/helpers/review-listing.handlebars')
-const createReviewTemplate = require('./templates/helpers/create-review.handlebars')
 const selectBeerTemplate = require('./templates/helpers/select-beer.handlebars')
 
 const signUpSuccess = function (data) {
@@ -22,6 +21,7 @@ const signInSuccess = function (response) {
   $('#change-password').show()
   $('#sign-out').show()
   $('#sign-up').hide()
+  $('#viewReviews').show()
 }
 
 const signInFailure = function (error) {
@@ -35,6 +35,8 @@ const signOutSuccess = function (data) {
   $('#sign-up').show()
   $('#sign-out').hide()
   $('#change-password').hide()
+  $('#viewReviews').hide()
+  $('.reviews').html('')
 }
 
 const signOutFailure = function (error) {
@@ -64,17 +66,19 @@ const getReviewsSuccess = function (data) {
   $('#message').text('Here is what happning and the stuff you need!!')
   const showReviewsHTML = showReviewsTemplate({ reviews: data.reviews })
   $('.location').html(showReviewsHTML)
+  console.log(data.reviews)
 }
 const getReviewsFailure = function () {
   $('#message').text('Get What Happening  Failed')
 }
 
-const createReviewsSuccess = function (data) {
-  $('#message').text('Here is what happning and the stuff you need!!')
-  const createReviewsHTML = createReviewTemplate({ reviews: data.reviews })
-  $('.createreviews').html(createReviewsHTML)
+const createReviewSuccess = function (data) {
+  $('#message').text('Here is what happning and the stuff you need SUCCESS!!')
+  // const createReviewsHTML = createReviewTemplate({ reviews: data.reviews })
+  // $('.createreviews').html(createReviewsHTML)
+  $('.selectbeer').html('')
 }
-const createReviewsFailure = function () {
+const createReviewFailure = function () {
   $('#message').text('Get What Happening  Failed')
 }
 const getBeerSuccess = function (data) {
@@ -86,6 +90,12 @@ const getBeerSuccess = function (data) {
 }
 const getBeerFailure = function () {
   $('#message').text('Get What Happening  Failed')
+}
+const deleteReviewSuccess = function () {
+  $('#message').text('Happening successfully deleted, select GET EVENTS to see updated list!!')
+}
+const deleteReviewFailure = function () {
+  $('#message').text('Delete Failed')
 }
 module.exports = {
   signUpSuccess,
@@ -100,8 +110,10 @@ module.exports = {
   getLocationsFailure,
   getReviewsSuccess,
   getReviewsFailure,
-  createReviewsSuccess,
-  createReviewsFailure,
+  createReviewSuccess,
+  createReviewFailure,
   getBeerSuccess,
-  getBeerFailure
+  getBeerFailure,
+  deleteReviewFailure,
+  deleteReviewSuccess
 }

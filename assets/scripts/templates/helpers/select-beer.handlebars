@@ -3,21 +3,23 @@
     <h4>Beer:{{beer.name}}</h4>
     <h4>Type:{{beer.beer_type}}</h4>
      <h4>Description:{{beer.description}}</h4>
-</div>
-<div class="createreviews" data-id="{{review.id}}">
-  <h4>Comment</h4>
+
   <form id="creatingReview">
+    <fieldset>
+      <input type='hidden' name='review[beer_id]' value="{{beer.id}}"
+        <h4>Comment</h4>
      <input type='text' class='reviewcomment' name='review[comment]' value="{{comment}}">
      <h4>How hoppy was it?</h4>
      <div class="dropdown">
-       <select id="ratingdropdown">
-                      <option value="{{rating}}">Super Hoppy</option>
-                      <option value="{{rating}}">Mild Hops</option>
-                      <option value="{{rating}}">Where are the hops?</option>
+       <select id="ratingdropdown" name='review[rating]'>
+                      <option value="Super Hoppy">Super Hoppy</option>
+                      <option value="Mild Hops">Mild Hops</option>
+                      <option value="Where are the hops?">Where are the hops?</option>
                     </select>
                   </div>
       <br>
-        <input class="sucessCreate" type="submit" name="submit" value="Create Review">
+
+     <input type='submit' class="sucessCreate" id="createReview" name="submit" value="Create Review">
+    </fieldset
       </form>
-    </div>
-  </div>
+</div>
