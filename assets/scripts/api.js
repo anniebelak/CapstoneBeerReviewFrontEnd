@@ -78,6 +78,18 @@ const show = function (data) {
     method: 'GET'
   })
 }
+
+const showReview = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/reviews/' + data,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const deleteReview = function (data) {
   // console.log('data is ', data.event)
   return $.ajax({
@@ -99,6 +111,7 @@ module.exports = {
   ReviewIndex,
   createReview,
   show,
-  deleteReview
+  deleteReview,
+  showReview
 
 }

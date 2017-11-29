@@ -44,6 +44,29 @@ h2{
       background-color:#96aa39;
       border-bottom:1px solid #7b8b2f;
   }
+
+  .select-review {
+    display:block; /* change this from inline-block */
+        width:20%; /* setting the width */
+        margin:0 auto; /* this will center  it */
+        position:relative;
+        font-style:normal;
+        font-weight:normal;
+        font-family:"Open Sans";
+        font-size:14px;
+        outline:none;
+        color:#fff;
+        border:none;
+        text-decoration:none;
+        text-align:center;
+        // cursor:pointer;
+        -webkit-border-radius:2px;
+        -moz-border-radius:2px;
+        border-radius:2px;
+        background-color:#96aa39;
+        border-bottom:1px solid #7b8b2f;
+
+  }
   #showLocation {
     display:block; /* change this from inline-block */
         width:20%; /* setting the width */
@@ -93,6 +116,7 @@ h2{
     display:block; /* change this from inline-block */
         width:20%; /* setting the width */
         // position:relative;
+        margin:0 auto;
         font-style:normal;
         font-weight:normal;
         font-family:"Open Sans";
@@ -114,6 +138,7 @@ h2{
   display:block; /* change this from inline-block */
       width:20%; /* setting the width */
       // position:relative;
+      margin:0 auto;
       font-style:normal;
       font-weight:normal;
       font-family:"Open Sans";
@@ -141,5 +166,5 @@ h2{
 }
 
 #auth-form {
-  margin:auto;
+  margin:0 auto;
 }

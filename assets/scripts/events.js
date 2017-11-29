@@ -13,7 +13,6 @@ const onSignUp = function (event) {
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
-  console.log('data is', data)
   $('#email').val('')
   $('#password1').val('')
   $('#password2').val('')
@@ -53,7 +52,7 @@ const onChangePassword = function (event) {
 const updatePassword = function (event) {
   $('#change-password').show()
 }
-
+// .select-beer button class on locations handlebars click event goes to the select handoebar to view beers//
 const getLocations = function (event) {
   event.preventDefault()
   api.index()
@@ -66,9 +65,12 @@ const getLocations = function (event) {
 }
 
 const getReviews = function (event) {
-  console.log('getting here?')
   event.preventDefault()
   api.ReviewIndex()
+    .then((reviews) => {
+      $(document).on('click', '.select-review', onSelectReview)
+      return reviews
+    })
     .then((reviews) => {
       $(document).on('click', '#updateReview', onUpdateReview)
       return reviews
@@ -98,10 +100,17 @@ const onSelectBeer = function (event) {
     .then(ui.getBeerSuccess)
     .catch(ui.getBeerFailure)
 }
+const onSelectReview = function (event) {
+  event.preventDefault()
+  console.log(event.target)
+  const selectedReviewId = $('.select-review').attr('data-id')
+  api.showReview(selectedReviewId)
+    .then(ui.getReviewSuccess)
+    .catch(ui.getReviewFailure)
+}
+
 const onDeleteReview = function (event) {
   event.preventDefault()
-  console.log('button is working')
-  console.log('what is event?', event.target)
   const deleteID = $('.delete-reviews').attr('data-id')
   console.log(deleteID)
   api.deleteReview(deleteID)
@@ -126,18 +135,22 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#passwordShow').on('click', updatePassword)
+  $('#change-password').hide()
+  $('#sign-out').hide()
   $('#showLocation').on('click', getLocations)
   $('#viewReviews').on('click', getReviews)
+  // .select-beer button class on the locations-listing handlebars//
   $('.select-beer').on('click', onSelectBeer)
-  // $('.selectbeer').on('submit', '#createReview', onCreateReview)
+  // div id from the html #getReviews
+  // $('.select-review').on('click', onSelectBeer)
+  $('.reviews').on('click', '.select-review', onSelectReview)
   $(document).on('submit', '#creatingReview', function (e) {
     onCreateReview(e)
   })
-  $(document).on('submit', '.delete-edit', function (e) {
-    onDeleteReview(e)
-  })
-
-  // $('#getReviews').on('click', '.delete-reviews', onDeleteReview)
+  $('.reviews').on('click', '.delete-reviews', onDeleteReview)
+  // $(document).on('submit', '.delete-edit', function (e) {
+  //   onDeleteReview(e)
+  // })
   $('#viewReviews').hide()
   $('#showLocation').hide()
 }

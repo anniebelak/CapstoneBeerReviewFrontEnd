@@ -3,6 +3,7 @@ const store = require('./store')
 const showLocationsTemplate = require('./templates/helpers/location-listing.handlebars')
 const showReviewsTemplate = require('./templates/helpers/review-listing.handlebars')
 const selectBeerTemplate = require('./templates/helpers/select-beer.handlebars')
+const selectReviewTemplate = require('./templates/helpers/select-review.handlebars')
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
@@ -70,7 +71,7 @@ const getLocationsFailure = function () {
 const getReviewsSuccess = function (data) {
   $('#message').text('Here are your reviews, if none appear go to local breweries to create reviews!')
   const showReviewsHTML = showReviewsTemplate({ reviews: data.reviews })
-  $('.location').html(showReviewsHTML)
+  $('.reviews').html(showReviewsHTML)
 }
 const getReviewsFailure = function () {
   $('#message').text('Get Reviews Failed')
@@ -91,6 +92,16 @@ const getBeerSuccess = function (data) {
 }
 const getBeerFailure = function () {
   $('#message').text('Unable to select beer!')
+}
+
+const getReviewSuccess = function (data) {
+  $('#message').text('You have successfully selected a your review!')
+  $('.reviews').html('')
+  const selectReviewHTML = selectReviewTemplate({ review: data.review })
+  $('.chosen-review').html(selectReviewHTML)
+}
+const getReviewFailure = function () {
+  $('#message').text('Unable to select Review!')
 }
 const deleteReviewSuccess = function () {
   $('#message').text('You have successfully deleted your review!')
@@ -117,5 +128,7 @@ module.exports = {
   getBeerSuccess,
   getBeerFailure,
   deleteReviewFailure,
-  deleteReviewSuccess
+  deleteReviewSuccess,
+  getReviewFailure,
+  getReviewSuccess
 }

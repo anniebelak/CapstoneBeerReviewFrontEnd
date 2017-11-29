@@ -1,8 +1,7 @@
 
 {{#each reviews as |review|}}
-<div class="reviews" data-id="{{review.id}}">
-  <form class = "delete-edit">
-    <div class="reviews" data-id="{{review.id}}">
+  <!-- <form class = "delete-edit"> -->
+    <div class="reviewslist" data-id="{{review.id}}">
   <h2>Review</h2>
   <h2>Comments</h2>
   <h4>{{comment}}</h4>
@@ -13,12 +12,17 @@
     <h4>Beer:{{review.beer.name}}</h4>
     <h4>Type:{{review.beer.beer_type}}</h4>
      <h4>Description:{{review.beer.description}}</h4>
-     <button class="delete-reviews" type="submit" data-id="{{review.id}}">DELETE</button>
+     <button class="delete-reviews" type="button" data-id="{{review.id}}">DELETE</button>
    </div>
+   <!-- <br> -->
+   <!-- <div> -->
+<!-- <button class='select-review' id="updateReview" type='button'>Select Edit to Update Review</button> -->
+   <!-- </div> -->
+   <!-- </form> -->
    <br>
-   <div>
-<button class='select-beer' id="updateReview" type='button'>Select Edit to Update Review</button>
-   </div>
-   </form>
+     <button class="select-review" data-id="{{review.id}}">Select to Edit your Review.</button>
+</div>
+</div>
 </div>
 {{/each}}
+   <!-- <button class="select-review" data-id="{{review.id}}">Select to Edit your Review.</button> -->
