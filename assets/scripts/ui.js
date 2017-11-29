@@ -110,6 +110,13 @@ const deleteReviewSuccess = function () {
 const deleteReviewFailure = function () {
   $('#message').text('Delete Failed')
 }
+
+const updateReviewSuccess = function (data) {
+  $('#message').text('Edit Successful')
+}
+const updateReviewFailure = function () {
+  $('#message').text('Edit Failed')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -130,5 +137,7 @@ module.exports = {
   deleteReviewFailure,
   deleteReviewSuccess,
   getReviewFailure,
-  getReviewSuccess
+  getReviewSuccess,
+  updateReviewSuccess,
+  updateReviewFailure
 }

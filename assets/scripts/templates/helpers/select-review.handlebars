@@ -1,10 +1,10 @@
 
-<div class="chosen-review" data-id="{{review.id}}">
-    <div class="beer" data-id="{{review.beer.id}}">
+<!-- <div class="chosen-review" data-id="{{review.id}}"> -->
+    <!-- <div class="beer" data-id="{{review.beer.id}}"> -->
     <h4>Beer:{{review.beer.name}}</h4>
     <h4>Type:{{review.beer.beer_type}}</h4>
      <h4>Description:{{review.beer.description}}</h4>
-     <div id="review-form">
+     <div id="review-form" data-id="{{review.id}}">
        <form id="updateReview">
          <fieldset>
            <input type='hidden' name='review[review_id]' value="{{review.id}}">
