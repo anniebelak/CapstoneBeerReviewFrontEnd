@@ -63,6 +63,7 @@ const getLocationsSuccess = function (data) {
   const showLocationsHTML = showLocationsTemplate({ locations: data.locations })
   $('.location').html(showLocationsHTML)
   $('.selectbeer').html('')
+  $('.chosen-review').html('')
 }
 const getLocationsFailure = function () {
   $('#message').text('Get Local Breweries Failed')
@@ -72,6 +73,7 @@ const getReviewsSuccess = function (data) {
   $('#message').text('Here are your reviews, if none appear go to local breweries to create reviews!')
   const showReviewsHTML = showReviewsTemplate({ reviews: data.reviews })
   $('.reviews').html(showReviewsHTML)
+  $('.location').html('')
 }
 const getReviewsFailure = function () {
   $('#message').text('Get Reviews Failed')
@@ -89,6 +91,7 @@ const getBeerSuccess = function (data) {
   $('.location').html('')
   const selectBeerHTML = selectBeerTemplate({ beer: data.beer })
   $('.selectbeer').html(selectBeerHTML)
+  $('.chosen-review').html('')
 }
 const getBeerFailure = function () {
   $('#message').text('Unable to select beer!')
@@ -98,7 +101,9 @@ const getReviewSuccess = function (data) {
   $('#message').text('You have successfully selected a your review!')
   $('.reviews').html('')
   const selectReviewHTML = selectReviewTemplate({ review: data.review })
+  console.log('data.review is', data.review)
   $('.chosen-review').html(selectReviewHTML)
+  $('.selectbeer').html('')
 }
 const getReviewFailure = function () {
   $('#message').text('Unable to select Review!')
@@ -113,6 +118,8 @@ const deleteReviewFailure = function () {
 
 const updateReviewSuccess = function (data) {
   $('#message').text('Edit Successful')
+  const selectReviewHTML = selectReviewTemplate({ review: data.review })
+  $('.chosen-review').html(selectReviewHTML)
 }
 const updateReviewFailure = function () {
   $('#message').text('Edit Failed')

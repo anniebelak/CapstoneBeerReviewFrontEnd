@@ -98,8 +98,9 @@ const onSelectBeer = function (event) {
 }
 const onSelectReview = function (event) {
   event.preventDefault()
-  console.log(event.target)
-  const selectedReviewId = $('.select-review').attr('data-id')
+  console.log('event.target select is', event.target)
+  const selectedReviewId = $(event.target).attr('data-id')
+  console.log('sleectreviewid is', selectedReviewId)
   api.showReview(selectedReviewId)
     .then(ui.getReviewSuccess)
     .catch(ui.getReviewFailure)
@@ -107,7 +108,7 @@ const onSelectReview = function (event) {
 
 const onDeleteReview = function (event) {
   event.preventDefault()
-  const deleteID = $('.delete-reviews').attr('data-id')
+  const deleteID = $(event.target).attr('data-id')
   console.log(deleteID)
   api.deleteReview(deleteID)
     .then(ui.deleteReviewSuccess)
