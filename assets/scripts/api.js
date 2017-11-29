@@ -102,6 +102,18 @@ const deleteReview = function (data) {
   })
 }
 
+const updateReview = function (reviewId, data) {
+  // console.log('data is ', data.event)
+  return $.ajax({
+    url: config.apiOrigin + '/reviews/' + reviewId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -112,6 +124,7 @@ module.exports = {
   createReview,
   show,
   deleteReview,
-  showReview
+  showReview,
+  updateReview
 
 }

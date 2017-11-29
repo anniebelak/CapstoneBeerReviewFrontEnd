@@ -88,7 +88,7 @@ const getBeerSuccess = function (data) {
   $('#message').text('You have successfully selected a yummy beverage!')
   $('.location').html('')
   const selectBeerHTML = selectBeerTemplate({ beer: data.beer })
-  $('.createreviews').html(selectBeerHTML)
+  $('.selectbeer').html(selectBeerHTML)
 }
 const getBeerFailure = function () {
   $('#message').text('Unable to select beer!')

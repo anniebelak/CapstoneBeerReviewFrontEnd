@@ -71,10 +71,6 @@ const getReviews = function (event) {
       $(document).on('click', '.select-review', onSelectReview)
       return reviews
     })
-    .then((reviews) => {
-      $(document).on('click', '#updateReview', onUpdateReview)
-      return reviews
-    })
     .then(ui.getReviewsSuccess)
     .catch(ui.getReviewsFailure)
 }
@@ -119,14 +115,18 @@ const onDeleteReview = function (event) {
 }
 
 const onUpdateReview = function (event) {
-  const data = getFormFields(this)
+  event.preventDefault()
+  console.log(event.target)
+  const data = getFormFields(event.target)
   console.log(event)
-  console.log('on update event data is', data.event)
+  console.log('on update event data is', data)
+  const reviewId = data.review.review_id
+  console.log(data.review.review_id)
   // const updateID = $(this).parent().attr('data-id')
   event.preventDefault()
-  api.updateEvent(data)
-    .then(ui.updateEventSuccess)
-    .catch(ui.updateEventFailure)
+  api.updateReview(reviewId, data)
+    .then(ui.updateReviewSuccess)
+    .catch(ui.updateReviewSuccessFailure)
 }
 
 const addHandlers = () => {
@@ -153,6 +153,10 @@ const addHandlers = () => {
   // })
   $('#viewReviews').hide()
   $('#showLocation').hide()
+  $(document).on('submit', '#review-form', function (e) {
+    onUpdateReview(e)
+  })
+//   $('.chosen-review').on('submit', '.successEdit', onUpdateReview)
 }
 
 module.exports = {
