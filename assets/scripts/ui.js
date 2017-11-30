@@ -76,7 +76,6 @@ const getLocationsFailure = function () {
 }
 
 const getReviewsSuccess = function (data) {
-  $('#message').text('Here are your reviews, if none appear go to local breweries to create reviews!')
   const showReviewsHTML = showReviewsTemplate({ reviews: data.reviews })
   $('.reviews').html(showReviewsHTML)
   $('.location').html('')

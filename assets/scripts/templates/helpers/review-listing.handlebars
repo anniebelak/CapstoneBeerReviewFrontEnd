@@ -1,4 +1,4 @@
-
+{{#if reviews}}
 {{#each reviews as |review|}}
     <div class="reviewslist" data-id="{{review.id}}">
   <h2>Review</h2>
@@ -19,3 +19,6 @@
 </div>
 </div>
 {{/each}}
+{{else}}
+<h4>No Reviews, please go to Local Breweries to select a tasty beverage to review!</h4>
+{{/if}}
