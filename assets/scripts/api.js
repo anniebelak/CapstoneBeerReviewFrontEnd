@@ -7,7 +7,6 @@ const signUp = function (data) {
     url: config.apiOrigin + '/sign-up',
     method: 'POST',
     data
-    // data: data
   })
 }
 
@@ -16,7 +15,6 @@ const signIn = function (data) {
     url: config.apiOrigin + '/sign-in',
     method: 'POST',
     data
-    // data: data
   })
 }
 
@@ -42,7 +40,6 @@ const changePassword = function (data) {
   })
 }
 const index = function () {
-  // console.log('data is ', data.event)
   return $.ajax({
     url: config.apiOrigin + '/locations',
     method: 'GET'
@@ -91,7 +88,6 @@ const showReview = function (data) {
 }
 
 const deleteReview = function (data) {
-  // console.log('data is ', data.event)
   return $.ajax({
     url: config.apiOrigin + '/reviews/' + data,
     method: 'DELETE',
@@ -103,7 +99,6 @@ const deleteReview = function (data) {
 }
 
 const updateReview = function (reviewId, data) {
-  // console.log('data is ', data.event)
   return $.ajax({
     url: config.apiOrigin + '/reviews/' + reviewId,
     method: 'PATCH',

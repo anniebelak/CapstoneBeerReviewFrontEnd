@@ -123,7 +123,6 @@ const onUpdateReview = function (event) {
   console.log('on update event data is', data)
   const reviewId = data.review.review_id
   console.log(data.review.review_id)
-  // const updateID = $(this).parent().attr('data-id')
   event.preventDefault()
   api.updateReview(reviewId, data)
     .then(ui.updateReviewSuccess)
@@ -140,18 +139,12 @@ const addHandlers = () => {
   $('#sign-out').hide()
   $('#showLocation').on('click', getLocations)
   $('#viewReviews').on('click', getReviews)
-  // .select-beer button class on the locations-listing handlebars//
   $('.select-beer').on('click', onSelectBeer)
-  // div id from the html #getReviews
-  // $('.select-review').on('click', onSelectBeer)
   $('.reviews').on('click', '.select-review', onSelectReview)
   $(document).on('submit', '#creatingReview', function (e) {
     onCreateReview(e)
   })
   $('.reviews').on('click', '.delete-reviews', onDeleteReview)
-  // $(document).on('submit', '.delete-edit', function (e) {
-  //   onDeleteReview(e)
-  // })
   $('#viewReviews').hide()
   $('#showLocation').hide()
   $(document).on('submit', '#review-form', function (e) {

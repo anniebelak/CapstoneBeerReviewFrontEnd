@@ -67,7 +67,7 @@ const getLocationsSuccess = function (data) {
   const showLocationsHTML = showLocationsTemplate({ locations: data.locations })
   $('.location').html(showLocationsHTML)
   $('.selectbeer').html('')
-  $('.chosen-review').html('')
+  $('.reviews').html('')
 }
 const getLocationsFailure = function () {
   $('#message').text('Get Local Breweries Failed')
