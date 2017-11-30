@@ -125,6 +125,7 @@ const updateReviewSuccess = function (data) {
   $('#message').text('Edit Successful')
   const selectReviewHTML = selectReviewTemplate({ review: data.review })
   $('.chosen-review').html(selectReviewHTML)
+  $('.chosen-review').html('')
 }
 const updateReviewFailure = function () {
   $('#message').text('Edit Failed')
