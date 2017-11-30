@@ -157,23 +157,37 @@ h2{
 }
 #createReview {
   margin:auto;
+  border-color: #fff;
 }
 
 #center-form {
   margin: auto;
-  width: 30%;
+  width: 50%;
   text-align: center;
+  border-color: #fff;
+  border: 2px solid #96aa39;
+  border-radius: 4px;
+  background-color: white;
 }
 
-#auth-form {
-  margin:0 auto;
-}
 
 #updateReview {
   margin: auto;
-  width: 30%;
+  width: 50%;
+  text-align: center;
+  border-color: #fff;
+  border: 2px solid #96aa39;
+  border-radius: 4px;
+  background-color: white;
+}
+
+
+#auth-form{
+  margin: auto;
+  width: 50%;
   text-align: center;
 }
+
 p {
   margin: auto;
   width: 30%;
@@ -205,6 +219,93 @@ p {
       background-color:#96aa39;
       border-bottom:1px solid #7b8b2f;
 
+}
+#signupButton{
+  display:block; /* change this from inline-block */
+      width:20%; /* setting the width */
+      // position:relative;
+      margin:0 auto;
+      font-style:normal;
+      font-weight:normal;
+      font-family:"Open Sans";
+      font-size:14px;
+      outline:none;
+      color:#fff;
+      border:none;
+      text-decoration:none;
+      text-align:center;
+      // cursor:pointer;
+      -webkit-border-radius:2px;
+      -moz-border-radius:2px;
+      border-radius:2px;
+      background-color:#96aa39;
+      border-bottom:1px solid #7b8b2f;
+}
+#signinButton{
+  display:block; /* change this from inline-block */
+      width:20%; /* setting the width */
+      // position:relative;
+      margin:0 auto;
+      font-style:normal;
+      font-weight:normal;
+      font-family:"Open Sans";
+      font-size:14px;
+      outline:none;
+      color:#fff;
+      border:none;
+      text-decoration:none;
+      text-align:center;
+      // cursor:pointer;
+      -webkit-border-radius:2px;
+      -moz-border-radius:2px;
+      border-radius:2px;
+      background-color:#96aa39;
+      border-bottom:1px solid #7b8b2f;
+
+}
+
+#changePassButton {
+  display:block; /* change this from inline-block */
+      width:20%; /* setting the width */
+      // position:relative;
+      margin:0 auto;
+      font-style:normal;
+      font-weight:normal;
+      font-family:"Open Sans";
+      font-size:14px;
+      outline:none;
+      color:#fff;
+      border:none;
+      text-decoration:none;
+      text-align:center;
+      // cursor:pointer;
+      -webkit-border-radius:2px;
+      -moz-border-radius:2px;
+      border-radius:2px;
+      background-color:#96aa39;
+      border-bottom:1px solid #7b8b2f;
+  }
+
+#signOutButton{
+  display:block; /* change this from inline-block */
+      width:20%; /* setting the width */
+      // position:relative;
+      margin:0 auto;
+      font-style:normal;
+      font-weight:normal;
+      font-family:"Open Sans";
+      font-size:14px;
+      outline:none;
+      color:#fff;
+      border:none;
+      text-decoration:none;
+      text-align:center;
+      // cursor:pointer;
+      -webkit-border-radius:2px;
+      -moz-border-radius:2px;
+      border-radius:2px;
+      background-color:#96aa39;
+      border-bottom:1px solid #7b8b2f;
 }
 
 @media only screen and (max-width:620px) {

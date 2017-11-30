@@ -29,7 +29,6 @@ const signOut = function () {
 }
 
 const changePassword = function (data) {
-  console.log('data is ', data)
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',
@@ -46,7 +45,6 @@ const index = function () {
   })
 }
 const ReviewIndex = function (data) {
-  console.log('data is', data)
   return $.ajax({
     url: config.apiOrigin + '/reviews',
     method: 'GET',
@@ -57,7 +55,6 @@ const ReviewIndex = function (data) {
   })
 }
 const createReview = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/reviews',
     method: 'POST',
@@ -69,7 +66,6 @@ const createReview = function (data) {
 }
 
 const show = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/beers/' + data,
     method: 'GET'
@@ -77,7 +73,6 @@ const show = function (data) {
 }
 
 const showReview = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/reviews/' + data,
     method: 'GET',

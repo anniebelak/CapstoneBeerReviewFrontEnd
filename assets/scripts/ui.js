@@ -46,6 +46,7 @@ const signOutSuccess = function (data) {
   $('.selectbeer').html('')
   $('#apptext').hide()
   $('#introtext').show()
+  $('.chosen-review').html('')
 }
 
 const signOutFailure = function (error) {
@@ -68,6 +69,7 @@ const getLocationsSuccess = function (data) {
   $('.location').html(showLocationsHTML)
   $('.selectbeer').html('')
   $('.reviews').html('')
+  $('.chosen-review').html('')
 }
 const getLocationsFailure = function () {
   $('#message').text('Get Local Breweries Failed')
@@ -78,6 +80,8 @@ const getReviewsSuccess = function (data) {
   const showReviewsHTML = showReviewsTemplate({ reviews: data.reviews })
   $('.reviews').html(showReviewsHTML)
   $('.location').html('')
+  $('.chosen-review').html('')
+  $('.selectbeer').html('')
 }
 const getReviewsFailure = function () {
   $('#message').text('Get Reviews Failed')
@@ -105,7 +109,6 @@ const getReviewSuccess = function (data) {
   $('#message').text('You have successfully selected a your review!')
   $('.reviews').html('')
   const selectReviewHTML = selectReviewTemplate({ review: data.review })
-  console.log('data.review is', data.review)
   $('.chosen-review').html(selectReviewHTML)
   $('.selectbeer').html('')
 }
@@ -114,7 +117,6 @@ const getReviewFailure = function () {
 }
 const deleteReviewSuccess = function () {
   $('#message').text('You have successfully deleted your review!')
-  $('.reviews').html('')
 }
 const deleteReviewFailure = function () {
   $('#message').text('Delete Failed')
@@ -127,6 +129,12 @@ const updateReviewSuccess = function (data) {
 }
 const updateReviewFailure = function () {
   $('#message').text('Edit Failed')
+}
+
+const notUniquePw = function () {
+  $('#message').text('Your new password is the same as the current password.  Please enter a different password.')
+  $('#password3').val('')
+  $('#password4').val('')
 }
 module.exports = {
   signUpSuccess,
@@ -150,5 +158,6 @@ module.exports = {
   getReviewFailure,
   getReviewSuccess,
   updateReviewSuccess,
-  updateReviewFailure
+  updateReviewFailure,
+  notUniquePw
 }

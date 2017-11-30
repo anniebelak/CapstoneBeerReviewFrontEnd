@@ -8,7 +8,6 @@ const ui = require('./ui')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('help')
   const data = getFormFields(this)
   api.signUp(data)
     .then(ui.signUpSuccess)
@@ -40,13 +39,17 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
+  console.log(event.target)
   $('#password3').show()
   $('#password4').show()
-
   const data = getFormFields(this)
-  api.changePassword(data)
-    .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure)
+  if (data.passwords.old === data.passwords.new) {
+    ui.notUniquePw()
+  } else {
+    api.changePassword(data)
+      .then(ui.changePasswordSuccess)
+      .catch(ui.changePasswordFailure)
+  }
 }
 
 const updatePassword = function (event) {
@@ -98,9 +101,7 @@ const onSelectBeer = function (event) {
 }
 const onSelectReview = function (event) {
   event.preventDefault()
-  console.log('event.target select is', event.target)
   const selectedReviewId = $(event.target).attr('data-id')
-  console.log('sleectreviewid is', selectedReviewId)
   api.showReview(selectedReviewId)
     .then(ui.getReviewSuccess)
     .catch(ui.getReviewFailure)
@@ -109,20 +110,21 @@ const onSelectReview = function (event) {
 const onDeleteReview = function (event) {
   event.preventDefault()
   const deleteID = $(event.target).attr('data-id')
-  console.log(deleteID)
   api.deleteReview(deleteID)
     .then(ui.deleteReviewSuccess)
     .catch(ui.deleteReviewFailure)
 }
 
+const onDeleteReviewRefresh = function (event) {
+  api.getReviews()
+    .then(ui.removeReviewRefreshSuccess)
+    .catch(ui.removeRemoveFailure)
+}
+
 const onUpdateReview = function (event) {
   event.preventDefault()
-  console.log(event.target)
   const data = getFormFields(event.target)
-  console.log(event)
-  console.log('on update event data is', data)
   const reviewId = data.review.review_id
-  console.log(data.review.review_id)
   event.preventDefault()
   api.updateReview(reviewId, data)
     .then(ui.updateReviewSuccess)

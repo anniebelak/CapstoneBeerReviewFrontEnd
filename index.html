@@ -11,15 +11,8 @@
 
     <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-    <!-- <div class="image"> -->
-      <fieldset>
-        <br>
-        <br>
-    <br>
-    <br>
-  </fieldset>
-  <!-- </div> -->
 
 <body class="container-fluid">
     <div id='message'></div>
@@ -33,31 +26,32 @@
         <input id="email" type="text" name="credentials[email]" placeholder="Enter Email">
         <input id="password1" type="password" name="credentials[password]"placeholder="Enter Password">
         <input id="password2" type="password" name="credentials[password_confirmation]"placeholder="Enter Password Confirmatiom">
-        <input type="submit" name="submit" value="Sign up!">
+        <br>
+        <input id="signupButton" type="submit" name="submit" value="Sign up!">
         </fieldset>
     </form>
+    <br>
     <form id="sign-in">
       <fieldset>
         <input id="sign-in-val" type="text" name="credentials[email]" placeholder="Enter Email">
         <input id="sign-password" type="password" name="credentials[password]"placeholder="Enter Password">
-        <input type="submit" name="submit" value="Sign In!">
+        <input id="signinButton" type="submit" name="submit" value="Sign In!">
         </fieldset>
     </form>
   <form id="sign-out">
       <fieldset>
-      <input type="submit" name="submit" value="Sign out!">
+      <input id="signOutButton" type="submit" name="submit" value="Sign out!">
       </fieldset>
   </form>
-  <div>
+  <br>
     <form id="change-password">
       <fieldset>
         <input id="password3" type="password" name="passwords[old]" placeholder="Old Password">
         <input id="password4" type="password" name="passwords[new]" placeholder="New Password">
-        <input type="submit" name="submit" value="Change PASSWORD!">
+        <input id="changePassButton" type="submit" name="submit" value="Change PASSWORD!">
         </fieldset>
     </form>
   </div>
-</div
 <br>
 
 <div id="introtext">
@@ -87,4 +81,4 @@
 <div class = "chosen-beer"></div>
 <div class = "chosen-review"></div>
 </body>
-<html>
+</html>
