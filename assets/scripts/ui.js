@@ -136,6 +136,12 @@ const notUniquePw = function () {
   $('#password3').val('')
   $('#password4').val('')
 }
+
+const removeReviewRefreshSuccess = function (data) {
+  const showReviewsHTML = showReviewsTemplate({ reviews: data.reviews })
+  $('.reviews').html(showReviewsHTML)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -159,5 +165,6 @@ module.exports = {
   getReviewSuccess,
   updateReviewSuccess,
   updateReviewFailure,
-  notUniquePw
+  notUniquePw,
+  removeReviewRefreshSuccess
 }

@@ -112,13 +112,14 @@ const onDeleteReview = function (event) {
   const deleteID = $(event.target).attr('data-id')
   api.deleteReview(deleteID)
     .then(ui.deleteReviewSuccess)
-    .catch(ui.deleteReviewFailure)
+    .then(onDeleteReviewRefresh)
+    .catch(ui.removeReFailure)
 }
 
 const onDeleteReviewRefresh = function (event) {
-  api.getReviews()
+  api.ReviewIndex()
     .then(ui.removeReviewRefreshSuccess)
-    .catch(ui.removeRemoveFailure)
+    .catch(ui.removeReFailure)
 }
 
 const onUpdateReview = function (event) {
