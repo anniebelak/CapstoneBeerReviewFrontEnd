@@ -24,6 +24,8 @@ const signInSuccess = function (response) {
   $('#sign-up').hide()
   $('#viewReviews').show()
   $('#showLocation').show()
+  $('#apptext').hide().show()
+  $('#introtext').hide()
 }
 
 const signInFailure = function (error) {
@@ -42,6 +44,8 @@ const signOutSuccess = function (data) {
   $('#showLocation').hide()
   $('.location').html('')
   $('.selectbeer').html('')
+  $('#apptext').hide()
+  $('#introtext').show()
 }
 
 const signOutFailure = function (error) {

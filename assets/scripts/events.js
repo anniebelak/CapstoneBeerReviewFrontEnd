@@ -157,6 +157,7 @@ const addHandlers = () => {
   $(document).on('submit', '#review-form', function (e) {
     onUpdateReview(e)
   })
+  $('#apptext').hide()
 //   $('.chosen-review').on('submit', '.successEdit', onUpdateReview)
 }
 
