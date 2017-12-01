@@ -1,6 +1,6 @@
 
 
-![screenshot]https://i.imgur.com/cKiTHvL.png
+![screenshot](Screen Shot 2017-11-30 at 4.48.07 PM.png)
 
                             WHaTs HOPs ining
 
@@ -18,7 +18,7 @@ added to the database.
 User Guide
 1. User must sign up and sign in to review beers.
 
-2.Once signed in to WHaTs HOPS ining a usercan select a Local Breweries to see list
+2.Once signed in to WHaTs HOPS ining a user can select a Local Breweries to see list
 of local breweries and the beers to review.
 
 3. Once in the list of Local Breweries , beers can be selected and a review
@@ -38,7 +38,7 @@ Technologies Used:
 
 Developement Process
 The first few steps in developement wireframes and user stories were created to
-to outine how app should look and respond to user.
+to outline how app should look and respond to user.
 
 An ERD was also created to understand how the database should be set up in relationship
 to the purpose of the app.

@@ -39,7 +39,6 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log(event.target)
   $('#password3').show()
   $('#password4').show()
   const data = getFormFields(this)
