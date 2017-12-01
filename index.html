@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beer-Review-App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+
+    <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+<body class="container-fluid">
+    <div id='message'></div>
+    <br>
+    <br>
+
+      <h2 id= "title">WHaTs HOPs ining</h2>
+      <div id="auth-form">
+    <form id="sign-up">
+      <fieldset>
+        <input id="email" type="text" name="credentials[email]" placeholder="Enter Email">
+        <input id="password1" type="password" name="credentials[password]"placeholder="Enter Password">
+        <input id="password2" type="password" name="credentials[password_confirmation]"placeholder="Enter Password Confirmatiom">
+        <br>
+        <input id="signupButton" type="submit" name="submit" value="Sign up!">
+        </fieldset>
+    </form>
+    <br>
+    <form id="sign-in">
+      <fieldset>
+        <input id="sign-in-val" type="text" name="credentials[email]" placeholder="Enter Email">
+        <input id="sign-password" type="password" name="credentials[password]"placeholder="Enter Password">
+        <input id="signinButton" type="submit" name="submit" value="Sign In!">
+        </fieldset>
+    </form>
+  <form id="sign-out">
+      <fieldset>
+      <input id="signOutButton" type="submit" name="submit" value="Sign out!">
+      </fieldset>
+  </form>
+  <br>
+    <form id="change-password">
+      <fieldset>
+        <input id="password3" type="password" name="passwords[old]" placeholder="Old Password">
+        <input id="password4" type="password" name="passwords[new]" placeholder="New Password">
+        <input id="changePassButton" type="submit" name="submit" value="Change PASSWORD!">
+        </fieldset>
+    </form>
+  </div>
+<br>
+
+<div id="introtext">
+  <P> Welcome To WHaTs HOPs ining, an app that allows you to review beers at your
+    local breweries, so you can keep track of the tasty beverages you have had in
+    your travels and remember which beers you liked best!!. </P>
+  </div>
+  <div id="apptext">
+    <P> Select Local Breweries to begin reviewing the tasty beverages available at
+      your local breweries! If you want to see your reviews or change your reviews
+      simply select My Reviews. ENJOY!!</P>
+    </div>
+
+
+
+    <input type="button" id="showLocation" value="Local Breweries">
+    <br>
+    <input type="button" id="viewReviews" value="My Reviews">
+    <br>
+    <!-- //locations handler// -->
+<div class="location"></div>
+<!-- //get review list handler// -->
+<div class="reviews" id="getReviews"></div>
+<!-- <div class="createreviews" id="newReview"></div> -->
+
+<div class="selectbeer"></div>
+<div class = "chosen-beer"></div>
+<div class = "chosen-review"></div>
+</body>
+</html>
